@@ -3,12 +3,13 @@ import '@/styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import * as gtag from '../lib/gtag'
+import Script from 'next/script.js';
+import * as gtag from '../lib/gtag';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-     <Head>
+      <Head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -23,9 +24,13 @@ export default function App({ Component, pageProps }: AppProps) {
           }}
         />
       </Head>
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </>
   );
 }
-
