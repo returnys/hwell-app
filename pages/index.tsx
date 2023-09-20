@@ -21,7 +21,11 @@ export default function Home({ infos }: IProps) {
   }, [initializeInfos, infos]);
   return (
     <>
-      <NextSeo title='건강검진센터 위치서비스' description='건강검진센터 위치서비스입니다.'/>
+      <NextSeo
+        title="건강검진센터 위치서비스"
+        description="건강검진센터 위치서비스입니다."
+        canonical="https://hwell-app-one.vercel.app"
+      />
       <Header />
       <MapScene />
     </>
